@@ -1,11 +1,4 @@
-/* Modern CSS Reset & Variables */
-:root {
-    --primary-color: #4f46e5;
-    --primary-hover: #4338ca;
-    --text-color: #1f2937;
-    --bg-color: #f9fafb;
-    --card-bg: #ffffff;
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -13,55 +6,283 @@
     box-sizing: border-box;
 }
 
-/* Base Body Styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-/* Layout Container */
-.container {
-    background-color: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    text-align: center;
-    max-width: 400px;
-    width: 100%;
-}
-
-/* Typography */
-h1 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: #111827;
-}
-
-p {
-    font-size: 1rem;
-    color: #4b5563;
-    margin-bottom: 1.5rem;
-}
-
-/* Modern Button Component */
-.btn-primary {
-    background-color: var(--primary-color);
+    font-family: 'DM Sans', sans-serif;
     color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    background: #10271d;
 }
 
-.btn-primary:hover {
-    background-color: var(--primary-hover);
+/* Navigation */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4),
+        transparent
+    );
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a8e6b0;
+}
+
+/* Nature Background */
+.hero {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 140px 8%;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 25, 15, 0.88),
+            rgba(5, 25, 15, 0.35)
+        ),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Main Content */
+.content {
+    max-width: 700px;
+    animation: fadeUp 1s ease;
+}
+
+.subtitle {
+    color: #a8e6b0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #a8e6b0;
+}
+
+.description {
+    max-width: 550px;
+    color: #eeeeee;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    padding: 15px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.primary {
+    background: #a8e6b0;
+    color: #10271d;
+}
+
+.primary:hover {
+    background: #d0f5d4;
+    transform: translateY(-3px);
+}
+
+.secondary {
+    color: white;
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.secondary:hover {
+    background: rgba(168, 230, 176, 0.2);
+    border-color: #a8e6b0;
+    transform: translateY(-3px);
+}
+
+/* Information Sections */
+.info {
+    padding: 90px 8%;
+    text-align: center;
+    background: #142f22;
+}
+
+.info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 20px;
+}
+
+.info p {
+    max-width: 650px;
+    margin: auto;
+    color: #d5e0d7;
+    line-height: 1.9;
+}
+
+.explore {
+    background: #1b3b29;
+}
+
+/* Footer */
+footer {
+    padding: 25px;
+    text-align: center;
+    background: #091a11;
+    color: #cdd8cf;
+    font-size: 0.9rem;
+}
+
+/* Animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 22px 5%;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        padding: 150px 6% 100px;
+        background-position: 60% center;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .info {
+        padding: 70px 6%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 0.78rem;
+    }
+
+    .hero {
+        padding: 160px 6% 90px;
+        background-position: 60% center;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 11vw, 3.4rem);
+    }
+
+    .subtitle {
+        font-size: 0.68rem;
+        letter-spacing: 2px;
+        line-height: 1.8;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
 }
